@@ -1,0 +1,100 @@
+Welcome to the “How to use Git” training.  This training will consist of some activities 
+or exercises which you will do to demonstrate to yourself that you know the Basic and 
+more Advanced commands used in git.  Since cPanel will include this feature in the 
+product starting in Version 72, we want to have everyone in Support familiar with how to use it.  
+
+Following the how to use git training there will be a “How to support Git” training.  This 
+training will feature troubleshooting actions and also a list of “do not do” commands (much like 
+the “no reboot” policy on a customers server that we have) which you will learn in this training.  
+Since it is tempting to try out something that you should not do on a customers server, you 
+should do these command on your server so that you can see the effects of it, and how it 
+could cause customers to lose data.  
+
+Basic Git Commands
+
+You have just done the first Basic git command ( git clone ).  Here is the list of Basic
+commands that we will be covering in this first section:
+
+clone
+status
+branch
+checkout
+add
+diff
+commit
+log
+merge
+fetch
+pull
+push
+initialize
+
+
+Struture of GIt:
+
+Git is made up of 3 major areas:
+
+ History
+ Index
+ Working Directory
+
+History is the record of Commit’s that have been performed on this branch.  The current Commit that you are working on for this branch is called the HEAD.  It is where the next commit that you perform will end at.  The new commit will then be marked with the HEAD.  
+
+Let’s take a look at one file in this branch.  It is called the master branch and you should create a new file inside of the cloned repo and enter the version number into this file.  An example might be to create a file called myfile.  Then add the file to the branch then commit the branch.
+
+echo 1 > myfile
+git add myfile
+git commit -m “version 1”
+
+Now you have one file with content of the version 1 and it is in all three parts of your master branch, History, Index, and Working Diretory:
+
+run the command with the name of your file as an argument:  
+
+./show_status.sh myfile
+
+History:  1
+Index:   1
+Working Directory:  1
+
+So we see that the file is in all three parts of the git repository master branch
+
+Change the Working Directory file to a new version with this ommand:
+
+echo 2 > myfile
+./show_status.sh myfile
+
+History:  1
+Index:  1
+Working Directory:  2
+
+Next add the file to your Index with this command:
+
+git add myfile
+
+./show_status.sh myfile
+
+History:  1
+Index:  2
+Working DIrectory:  2
+
+
+Next we want to commit the change of this file to history, run the following command:
+
+git commit -m “Version 2”
+
+History:  2
+Index:   2
+Working Directory:  2
+
+
+
+Finally, we want to place the file into different versions of each part of git by running this command:
+
+
+./initial_setup.sh  myfile
+
+History:  2
+Index:  3
+Working Directory:  4
+
+
