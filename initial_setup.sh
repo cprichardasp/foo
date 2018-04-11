@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ -e $1 ]; then
+if [[ -e $1 || $1 != '' ]]; then
 	TARGET=$1
 	echo 'version 3' > $TARGET
 	git add $TARGET

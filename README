@@ -85,10 +85,6 @@ run the command with the name of your file as an argument:
 
 ./show_status.sh myfile
 
-History:  1
-Index:   1
-Working Directory:  1
-
 So we see that the file is in all three parts of the git repository master branch
 
 ===================
@@ -99,12 +95,8 @@ Excercise 2
 
 Change the Working Directory file to a new version with this command:
 
-echo 2 > myfile
+echo 'version 2' > myfile
 ./show_status.sh myfile
-
-History:  1
-Index:  1
-Working Directory:  2
 
 
 ===================
@@ -119,12 +111,6 @@ git add myfile
 
 ./show_status.sh myfile
 
-History:  1
-Index:  2
-Working Directory:  2
-
-
-
 
 The commit command
 ==================
@@ -138,20 +124,12 @@ git commit -m “Version 2”
 
 ./show_status.sh myfile
 
-History:  2
-Index:   2
-Working Directory:  2
-
-
 Now we want to place the file into different versions of each part of git by running this command:
 
 ./initial_setup.sh  myfile
 
-History:  2
-Index:  3
-Working Directory:  4
-
 All three parts have the same file but with different versions.  We will cover two other commands which will recover changes.
+
 
 The reset command
 ================
@@ -159,17 +137,12 @@ The reset command
 Excercise 5
 -----------
 
-
 ./initial_setup.sh  myfile  #  reset back to the initial starting point
 git reset -- myfile
 
 This will copy the commit under HEAD to the Index.
 
-run the command ./show_status.sh myfile
-
-History:  2
-Index:   2
-Working Directory:  4
+./show_status.sh myfile
 
 
 The checkout command
@@ -186,10 +159,6 @@ git checkout -- myfile
 
 ./show_status.sh myfile
 
-History:  2
-Index: 3
-Working Directory:  3
-
 
 ===============
 
@@ -204,10 +173,6 @@ git checkout HEAD -- myfile
 
 ./show_status.sh  myfile
 
-History:  2
-Index:  2
-Working Directory:  2
-
 
 =================
 
@@ -217,7 +182,4 @@ Excercise 8
 ./initial_setup.sh  myfile  #  reset back to the initial starting point
 git commit myfile -m "version 4"
 
-History:  4
-Index:   4
-Working Directory:  4
-
+./show_status.sh myfile
