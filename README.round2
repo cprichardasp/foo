@@ -1,4 +1,45 @@
-Learning Git Round 2
+Introduction
+============
 
+Welcome to the “How to use Git” training, round 2. 
+
+Basic Git Commands
+==================
+
+Commands that we will be covering in this second module:
+
+Round 1  =>  clone
+Round 1  =>  checkout
+Round 1  =>  add
+Round 1  =>  commit
+Round 1  =>  reset
+=>   status
+=>   branch
+=>   initialize
+=>   log
+=>   merge
+   fetch
+   pull
+   push
+   diff
+   remote
+
+
+The status command
+==================
+
+This command will tell you information about the Working Directory and the Index, but not any information about the History of commits for the repository.  
+
+Example 2-1
+-----------
+
+git status 
+
+This will show you what the status of the master branch is in.  If there are some un-added or un-committed files, you 
+will be informed.  
+
+echo 'version 4-2' > myfile
+
+./show_status.sh myfile
 
 
