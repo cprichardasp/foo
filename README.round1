@@ -33,6 +33,7 @@ commands that we will be covering in this first module:
    pull
    push
    initialize
+   remote
 
 
 Struture of Git Repo
