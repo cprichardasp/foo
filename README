@@ -23,6 +23,7 @@ commands that we will be covering in this first module:
  =>  checkout
  =>  add
  =>  commit
+ =>  reset
    diff
    status
    branch
@@ -47,7 +48,7 @@ History is the record of Commit’s that have been performed on this branch.  Th
 on for this branch is called the HEAD.  It is where the next commit that you perform will end at.  The new commit will 
 then be marked with the HEAD.  
 
-Index is the "staging" location for files that have not been included in the commit History yet.  These files are a 
+Index is the "staging" location for changes that have not been included in the commit History yet.  These changes are a 
 part of the project on your local Repo.
 
 Working Directory is the local Repo and will contain all the files under it whether they are in the Index and History or not. 
@@ -65,7 +66,7 @@ Excercises to demonstrate a file being changed
 
 Let’s take a look at one file in this branch.  It is called the master branch and you should create a new file inside 
 of the cloned repo and enter the version number into this file.  An example might be to create a file called myfile.  
-Then add the file to the branch then commit the branch.
+Then add the change to the branch then commit the branch.
 
 
 The add command
@@ -85,7 +86,7 @@ run the command with the name of your file as an argument:
 
 ./show_status.sh myfile
 
-So we see that the file is in all three parts of the git repository master branch
+So we see that the change is in all three parts of the git repository master branch
 
 ===================
 
