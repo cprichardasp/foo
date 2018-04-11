@@ -1,3 +1,6 @@
+Introduction
+============
+
 Welcome to the “How to use Git” training.  This training will consist of some activities 
 or exercises which you will do to demonstrate to yourself that you know the Basic and 
 more Advanced commands used in git.  Since cPanel will include this feature in the 
@@ -7,30 +10,32 @@ Following the how to use git training there will be a “How to support Git” t
 training will feature troubleshooting actions and also a list of “do not do” commands (much like 
 the “no reboot” policy on a customers server that we have) which you will learn in this training.  
 Since it is tempting to try out something that you should not do on a customers server, you 
-should do these command on your server so that you can see the effects of it, and how it 
+should do these commands on your server so that you can see the effects of it, and how it 
 could cause customers to lose data.  
 
 Basic Git Commands
+==================
 
 You have just done the first Basic git command ( git clone ).  Here is the list of Basic
-commands that we will be covering in this first section:
+commands that we will be covering in this first module:
 
-clone
-status
-branch
-checkout
-add
-diff
-commit
-log
-merge
-fetch
-pull
-push
-initialize
+ =>  clone
+ =>  checkout
+ =>  add
+ =>  commit
+   diff
+   status
+   branch
+   log
+   merge
+   fetch
+   pull
+   push
+   initialize
 
 
-Struture of GIt:
+Struture of Git Repo
+---------------------
 
 Git is made up of 3 major areas:
 
@@ -38,15 +43,43 @@ Git is made up of 3 major areas:
  Index
  Working Directory
 
-History is the record of Commit’s that have been performed on this branch.  The current Commit that you are working on for this branch is called the HEAD.  It is where the next commit that you perform will end at.  The new commit will then be marked with the HEAD.  
+History is the record of Commit’s that have been performed on this branch.  The current Commit that you are working 
+on for this branch is called the HEAD.  It is where the next commit that you perform will end at.  The new commit will 
+then be marked with the HEAD.  
 
-Let’s take a look at one file in this branch.  It is called the master branch and you should create a new file inside of the cloned repo and enter the version number into this file.  An example might be to create a file called myfile.  Then add the file to the branch then commit the branch.
+Index is the "staging" location for files that have not been included in the commit History yet.  These files are a 
+part of the project on your local Repo.
 
-echo 1 > myfile
+Working Directory is the local Repo and will contain all the files under it whether they are in the Index and History or not. 
+
+
+  /---------------\ git commit /--------------\   git add    /------------------\
+  |               | <------    |              |  <--------   |                   |
+  |     History   |            |    Index     |              | Working Directory |
+  |               | ------>    |              |  -------->   |                   |
+  \---------------/ git reset   \-------------/ git checkout  \------------------/
+
+
+Excercises to demonstrate a file being changed
+----------------------------------------------
+
+Let’s take a look at one file in this branch.  It is called the master branch and you should create a new file inside 
+of the cloned repo and enter the version number into this file.  An example might be to create a file called myfile.  
+Then add the file to the branch then commit the branch.
+
+
+The add command
+===============
+
+Excercise 1
+-----------
+
+echo 'version 1' > myfile
 git add myfile
 git commit -m “version 1”
 
-Now you have one file with content of the version 1 and it is in all three parts of your master branch, History, Index, and Working Diretory:
+Now you have one file with content of the version 1 and it is in all three parts of your master branch, History, 
+Index, and Working Diretory:
 
 run the command with the name of your file as an argument:  
 
@@ -58,7 +91,13 @@ Working Directory:  1
 
 So we see that the file is in all three parts of the git repository master branch
 
-Change the Working Directory file to a new version with this ommand:
+===================
+
+
+Excercise 2
+-----------
+
+Change the Working Directory file to a new version with this command:
 
 echo 2 > myfile
 ./show_status.sh myfile
@@ -66,6 +105,13 @@ echo 2 > myfile
 History:  1
 Index:  1
 Working Directory:  2
+
+
+===================
+
+
+Excercise 3
+-----------
 
 Next add the file to your Index with this command:
 
@@ -75,21 +121,29 @@ git add myfile
 
 History:  1
 Index:  2
-Working DIrectory:  2
+Working Directory:  2
 
+
+
+
+The commit command
+==================
+
+Excercise 4
+-----------
 
 Next we want to commit the change of this file to history, run the following command:
 
 git commit -m “Version 2”
+
+./show_status.sh myfile
 
 History:  2
 Index:   2
 Working Directory:  2
 
 
-
-Finally, we want to place the file into different versions of each part of git by running this command:
-
+Now we want to place the file into different versions of each part of git by running this command:
 
 ./initial_setup.sh  myfile
 
@@ -97,4 +151,73 @@ History:  2
 Index:  3
 Working Directory:  4
 
+All three parts have the same file but with different versions.  We will cover two other commands which will recover changes.
+
+The reset command
+================
+
+Excercise 5
+-----------
+
+
+./initial_setup.sh  myfile  #  reset back to the initial starting point
+git reset -- myfile
+
+This will copy the commit under HEAD to the Index.
+
+run the command ./show_status.sh myfile
+
+History:  2
+Index:   2
+Working Directory:  4
+
+
+The checkout command
+====================
+
+
+Excercise 6
+-----------
+
+This will copy the changes from the Index to the Working Directory
+
+./initial_setup.sh  myfile  #  reset back to the initial starting point
+git checkout -- myfile
+
+./show_status.sh myfile
+
+History:  2
+Index: 3
+Working Directory:  3
+
+
+===============
+
+Excercise 7
+-----------
+
+Copy the changes from History (HEAD) to both the Index and the Working Directory
+
+
+./initial_setup.sh  myfile  #  reset back to the initial starting point
+git checkout HEAD -- myfile
+
+./show_status.sh  myfile
+
+History:  2
+Index:  2
+Working Directory:  2
+
+
+=================
+
+Excercise 8
+-----------
+
+./initial_setup.sh  myfile  #  reset back to the initial starting point
+git commit myfile -m "version 4"
+
+History:  4
+Index:   4
+Working Directory:  4
 
