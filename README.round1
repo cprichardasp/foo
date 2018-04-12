@@ -47,7 +47,7 @@ Git is made up of 3 major areas:
 
 History is the record of Commit’s that have been performed on this branch.  The current Commit that you are working 
 on for this branch is called the HEAD.  It is where the next commit that you perform will end at.  The new commit will 
-then be marked with the HEAD.  
+then be marked with the HEAD pointer.  
 
 Index is the "staging" location for changes that have not been included in the commit History yet.  These changes are a 
 part of the project on your local Repo.
@@ -57,11 +57,15 @@ Working Directory is the local Repo and will contain all the files under it whet
 
 {special thanks to  http://marklodato.github.io/visual-git-guide/index-en.html}
 
+                                 git commit -a
+                    <-------------------------------------
   /---------------\ git commit /--------------\   git add    /------------------\
   |               | <------    |              |  <--------   |                   |
   |     History   |            |    Index     |              | Working Directory |
   |               | ------>    |              |  -------->   |                   |
   \---------------/ git reset   \-------------/ git checkout  \------------------/
+                    ------------------------------------->
+                              git checkout HEAD
 
 
 Excercises to demonstrate a file being changed
@@ -69,13 +73,16 @@ Excercises to demonstrate a file being changed
 
 Let’s take a look at one file in this branch.  It is called the master branch and you should create a new file inside 
 of the cloned repo and enter the version number into this file.  An example might be to create a file called myfile.  
-Then add the change to the branch then commit the branch.
+Then add the change to the branch then commit the branch.  This branch includes 2 scripts which will help you to easily
+identify which version a particular file is located.  The script show_status.sh with the argument of a small file will 
+list which branch you are working in and what the contents of that file is.  The script initial_setup.sh with an argument 
+of the file name will place the file into a state where that file is in 3 different states.   
 
 
 The add command
 ===============
 
-Excercise 1
+Excercise 1   Create a small file and display which version of that file are in History, Index, and in Working Directoy
 -----------
 
 echo 'version 1' > myfile
@@ -94,7 +101,7 @@ So we see that the change is in all three parts of the git repository master bra
 ===================
 
 
-Excercise 2
+Excercise 2   Change the file version in your Working Directory only, display the status of the file
 -----------
 
 Change the Working Directory file to a new version with this command:
@@ -106,7 +113,7 @@ echo 'version 2' > myfile
 ===================
 
 
-Excercise 3
+Excercise 3   Add your file to the Index and display the status of the file
 -----------
 
 Next add the file to your Index with this command:
@@ -119,7 +126,7 @@ git add myfile
 The commit command
 ==================
 
-Excercise 4
+Excercise 4   Add your file to the History and display the status of the file. 
 -----------
 
 Next we want to commit the change of this file to history, run the following command:
@@ -131,6 +138,9 @@ git commit -m “Version 2”
 Now we want to place the file into different versions of each part of git by running this command:
 
 ./initial_setup.sh  myfile
+
+
+
 
 All three parts have the same file but with different versions.  We will cover two other commands which will recover changes.
 
