@@ -28,12 +28,12 @@ commands that we will be covering in this first module:
    init
    log
    diff
-   branch
-   merge
    fetch
    pull
    push
    remote
+   branch
+   merge
 
 
 Struture of Git Repo
@@ -54,6 +54,8 @@ part of the project on your local Repo.
 
 Working Directory is the local Repo and will contain all the files under it whether they are in the Index and History or not. 
 
+
+{special thanks to  http://marklodato.github.io/visual-git-guide/index-en.html}
 
   /---------------\ git commit /--------------\   git add    /------------------\
   |               | <------    |              |  <--------   |                   |

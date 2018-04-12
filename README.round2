@@ -1,19 +1,5 @@
-Personal Local Repository
+Round 2 Git training:
 
-
-Introduction
-============
-
-During this section, we would like you to create a personal local repository which can be anything that you want.
-For example, you might want to create a repo for your “dotfiles.”  
-
-There are other things that you might want to create a personal repo for, such as scripts
-that you have written in the past that you might want to create a repo for keeping track of your code.  
-If you are one who has several git repos already that you use, please think of a new one that is much more
-challenging than ones that you have created in the past.  
-
-This repo will be only a local repository, for now, but you can make a remote repo for this after the training
-is complete if you decide to continue practicing using git.  
 
 Basic Git Commands
 ==================
@@ -30,23 +16,65 @@ round1 =>  reset
 => init
 => log
 => diff
-   branch
-   merge
    fetch
    pull
    push
    remote
+   branch
+   merge
 
 The status command
-------------------
+==================
+
+This command will tell you information about the Working Directory and the Index, but not any information about the History of commits for the repository.
+
+Exercise 2-1
+-----------
+
+git status
+
+This will show you what the status of the master branch is in.  If there are some un-added or un-committed files, you
+will be informed.
+
+echo 'version 4-2' > myfile
+
+./show_status.sh myfile
+
+=============
+
+Exercise 2-2
+------------
+
+Run git status with all the options and make sure that you understand the information that you are seeing:
+
+git help status
+
+You will be using status later on in the training and when you understand the power of what you are seeing, it will help 
+you greatly.  
 
 
+The practical example - Make your own personal repository
+==========================================================
+
+
+Introduction
+============
+
+During this section, we would like you to create a personal local repository which can be anything that you want.
+For example, you might want to create a repo for your “dotfiles.”  
+
+There are other things that you might want to create a personal repo for, such as scripts
+that you have written in the past that you might want to create a repo for keeping track of your code.  
+If you are one who has several git repos already that you use, please think of a new one that is much more
+challenging than ones that you have created in the past.  
+
+This repo will be only a local repository, for now, but you can make a remote repo for this after the training
+is complete if you decide to continue practicing using git.  
 
 
 
 The init command
----------------
-
+================
 Normally you would create a new repository within a clean empty directory.  You create the empty (bare)
 repo with the command:
 
@@ -103,4 +131,11 @@ run the command:
 git log --oneline
 
 Copy and paste this output into an email and send it to xxxxx@xxxxxx.xxx
+
+
+
+The diff command
+================
+
+
 
