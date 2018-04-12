@@ -139,16 +139,13 @@ Now we want to place the file into different versions of each part of git by run
 
 ./initial_setup.sh  myfile
 
-
-
-
 All three parts have the same file but with different versions.  We will cover two other commands which will recover changes.
 
 
 The reset command
 ================
 
-Excercise 5
+Excercise 5   Reset the file state so that there are different versions in History, in Index, and in the Working Directory.
 -----------
 
 ./initial_setup.sh  myfile  #  reset back to the initial starting point
