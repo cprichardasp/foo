@@ -1,67 +1,106 @@
+Personal Local Repository
+
+
 Introduction
 ============
 
-Welcome to the “How to use Git” training, round 2. 
+During this section, we would like you to create a personal local repository which can be anything that you want.
+For example, you might want to create a repo for your “dotfiles.”  
+
+There are other things that you might want to create a personal repo for, such as scripts
+that you have written in the past that you might want to create a repo for keeping track of your code.  
+If you are one who has several git repos already that you use, please think of a new one that is much more
+challenging than ones that you have created in the past.  
+
+This repo will be only a local repository, for now, but you can make a remote repo for this after the training
+is complete if you decide to continue practicing using git.  
 
 Basic Git Commands
 ==================
 
-Commands that we will be covering in this second module:
+You have just done the first few Basic commands.  Here is the list of Basic commands that we will be covering 
+in this second module:
 
-Round 1  =>  clone
-Round 1  =>  checkout
-Round 1  =>  add
-Round 1  =>  commit
-Round 1  =>  reset
-=>   status
-=>   log
-=>   branch
-=>   initialize
-=>   merge
+round1 =>  clone
+round1 =>  checkout
+round1 =>  add
+round1 =>  commit
+round1 =>  reset
+=> status
+=> init
+=> log
+=> diff
+   branch
+   merge
    fetch
    pull
    push
-   diff
    remote
 
-
 The status command
-==================
+------------------
 
-This command will tell you information about the Working Directory and the Index, but not any information about the History of commits for the repository.  
 
-Exercise 2-1
------------
 
-git status 
 
-This will show you what the status of the master branch is in.  If there are some un-added or un-committed files, you 
-will be informed.  
 
-echo 'version 4-2' > myfile
+The init command
+---------------
 
-./show_status.sh myfile
+Normally you would create a new repository within a clean empty directory.  You create the empty (bare)
+repo with the command:
 
-=============
+git init dotfiles 
 
-Exercise 2-2
-------------
+This command will create the folder and place the git structure within this folder.  This is your local
+repository.  Within this folder you add all the files that you want to be able to version control for
+whatever purpose this repo has been created to do.
 
-Run git status with all the options and make sure that you understand the information that you are seeing:
+If you create a dotfiles repo you would place all the dotfiles that are in your workstation that you have control over. 
+For example:
 
-usage: git status [options] [--] <pathspec>...
+.bash_profile
+.bashrc
+.ssh/config
 
-    -v, --verbose         be verbose
-    -s, --short           show status concisely
-    -b, --branch          show branch information
-    --porcelain           machine-readable output
-    --long                show status in long format (default)
-    -z, --null            terminate entries with NUL
-    -u, --untracked-files[=<mode>]
-                          show untracked files, optional modes: all, normal, no. (Default: all)
-    --ignored             show ignored files
-    --ignore-submodules[=<when>]
-                          ignore changes to submodules, optional when: all, dirty, untracked. (Default: all)
-    --column[=<style>]    list untracked files in columns
+Also create a README file which will describe your repo and will be version controlled right along with all the
+other files in this folder.  
+ 
+You also might want to create a script which will backup the current dotfile and then copy this version of the 
+dotfile to the correct location on your workstation.  Finally, you will need to commit the changes before you
+end your dotfiles maintence session.
 
+Run the commands:
+
+git add .
+git commit -m "Initial commit"
+git status
+
+It is to your advantage to do a commit after each change that you have done.  You will be able to go back and unroll
+the various changes that you have made to any point in your edit history.  You might want to add your files first then 
+do your initial commit add or create more files and do another commit and so forth.  
+
+git help init
+
+You will learn about Templates, shared repos, and some of the other options, but they will not be covered in this training.
+
+
+The log command
+==============
+
+In order to see the activity having been done on your repository, you would run the command:
+
+git log 
+
+This will give you a list of all the commits that have been done on this repo so far.  The default listing is called
+the long list log output.  You can view the other options by running the command:
+
+git help log
+
+Go ahead and view all the options log listing and try them out when you have completed this,
+run the command:
+
+git log --oneline
+
+Copy and paste this output into an email and send it to xxxxx@xxxxxx.xxx
 

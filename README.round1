@@ -24,15 +24,15 @@ commands that we will be covering in this first module:
  =>  add
  =>  commit
  =>  reset
-   diff
    status
-   branch
+   init
    log
+   diff
+   branch
    merge
    fetch
    pull
    push
-   initialize
    remote
 
 
