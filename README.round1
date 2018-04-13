@@ -176,6 +176,7 @@ Excercise 6   This will copy the changes from the Index to the Working Directory
 git checkout -- myfile
 ./show_status.sh myfile
 
+Notice now that the changes that were added to the Index have been put back into the Working Directory.  History is unchanged.
 
 ===============
 
@@ -186,12 +187,15 @@ Excercise 7    Copy the changes from History (the pointer HEAD) to both the Inde
 git checkout HEAD -- myfile
 ./show_status.sh  myfile
 
+Now the changes in the commit History are now in both the Index and the Working Directory
 
 =================
 
-Excercise 8    
+Excercise 8   This commit will place the changes made in the Working Directory to both the Index and the History 
 -----------
 
 ./initial_setup.sh  myfile  #  reset back to the initial starting point
 git commit myfile -m "version 4"
 ./show_status.sh myfile
+
+Now all three parts of git agree that this version of the file is what is correct and placed into History.  
