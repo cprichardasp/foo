@@ -79,24 +79,27 @@ list which branch you are working in and what the contents of that file is.  The
 of the file name will place the file into a state where that file is in 3 different states.   
 
 
-The add command
-===============
+The add and commit commands
+===========================
 
-Excercise 1   Create a small file and display which version of that file are in History, Index, and in Working Directoy
+Excercise 1   Create a small file and display which version of that file are in History, in Index, and in the Working Directory
 -----------
 
 echo 'version 1' > myfile
 git add myfile
 git commit -m “version 1”
 
-Now you have one file with content of the version 1 and it is in all three parts of your master branch, History, 
+Now you have one file with content of "version 1" and it is in all three parts of your master branch, History, 
 Index, and Working Diretory:
 
 run the command with the name of your file as an argument:  
 
 ./show_status.sh myfile
 
-So we see that the change is in all three parts of the git repository master branch
+So we see that the change is in all three parts of the git repository master branch.  There is only one file, which is in 
+your Working Directory.  However, the changes to that file are found in Index and History.  The commit that you did is 
+a snapshot of what the file looked like when the commit was done.  You can describe the actions that you took in the 
+message for that commit.
 
 ===================
 
@@ -109,6 +112,7 @@ Change the Working Directory file to a new version with this command:
 echo 'version 2' > myfile
 ./show_status.sh myfile
 
+The History and the Index have not changed, only the Working Directory file has changed.  
 
 ===================
 
@@ -119,27 +123,28 @@ Excercise 3   Add your file to the Index and display the status of the file
 Next add the file to your Index with this command:
 
 git add myfile
-
 ./show_status.sh myfile
 
+Now you have added the changes on your file to the Index, notice now that the History has not changed.
 
-The commit command
 ==================
+
 
 Excercise 4   Add your file to the History and display the status of the file. 
 -----------
 
-Next we want to commit the change of this file to history, run the following command:
+Next we want to commit the change of this file to History, run the following command:
 
-git commit -m “Version 2”
-
+git commit -m “Committed the Version 2 changes of this file”    <=====  You can put whatever message you want to the commit
 ./show_status.sh myfile
+
+By doing this commit, you have added the changes that were "staged" in the Index to the commit snapshot.  Only the changes were added.  
 
 Now we want to place the file into different versions of each part of git by running this command:
 
 ./initial_setup.sh  myfile
 
-All three parts have the same file but with different versions.  We will cover two other commands which will recover changes.
+All three parts have the file changes  but with different versions.  We will cover two other commands which will recover changes.
 
 
 The reset command
@@ -149,48 +154,44 @@ Excercise 5   Reset the file state so that there are different versions in Histo
 -----------
 
 ./initial_setup.sh  myfile  #  reset back to the initial starting point
-git reset -- myfile
+git reset -- myfile         #  Using the "dash dash" seperates options from parameters (the file name in this case)
 
 This will copy the commit under HEAD to the Index.
 
 ./show_status.sh myfile
+
+Notice that we have taken the changes that were in the commit History and put them into the Index
+
+================
 
 
 The checkout command
 ====================
 
 
-Excercise 6
+Excercise 6   This will copy the changes from the Index to the Working Directory
 -----------
-
-This will copy the changes from the Index to the Working Directory
 
 ./initial_setup.sh  myfile  #  reset back to the initial starting point
 git checkout -- myfile
-
 ./show_status.sh myfile
 
 
 ===============
 
-Excercise 7
+Excercise 7    Copy the changes from History (the pointer HEAD) to both the Index and the Working Directory
 -----------
-
-Copy the changes from History (HEAD) to both the Index and the Working Directory
-
 
 ./initial_setup.sh  myfile  #  reset back to the initial starting point
 git checkout HEAD -- myfile
-
 ./show_status.sh  myfile
 
 
 =================
 
-Excercise 8
+Excercise 8    
 -----------
 
 ./initial_setup.sh  myfile  #  reset back to the initial starting point
 git commit myfile -m "version 4"
-
 ./show_status.sh myfile
